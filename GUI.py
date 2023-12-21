@@ -1,5 +1,6 @@
 import tkinter as tk
-from GUIFunc import startFunc
+from GUIFunc import startFunc, stopFunc
+
 window = tk.Tk()
 
 window.title("Rail AI Leader")
@@ -17,7 +18,7 @@ buttonFrame.pack(anchor="nw", padx=5)
 startButton = tk.Button(buttonFrame, text ="Start", command=startFunc , width=15, height=7, bg="#3bbd24", fg="black")
 startButton.grid(row=0,column=1, padx=5)
 
-stopButton = tk.Button(buttonFrame, text ="Stop", width=15, height=7, bg="#f02c1a", fg="black")
+stopButton = tk.Button(buttonFrame, text ="Stop", command=stopFunc, width=15, height=7, bg="#f02c1a", fg="black")
 stopButton.grid(row=0,column=2, padx=5)
 
 feedButton = tk.Button(buttonFrame, text ="Feed Schedule", width=15, height=7, bg="#3882c7", fg="black")
@@ -32,9 +33,13 @@ debugButton.grid(row=0,column=5, padx=5)
 manualButton = tk.Button(buttonFrame, text ="Manual", width=15, height=7, bg="#ed951a", fg="black")
 manualButton.grid(row=0,column=6, padx=5)
 
+#def open_enviro():
+#   proto.envWindow = tk.Toplevel(window)
+
 #Window Attributes
 
 window.geometry("775x160")
 window.resizable(False, False)
-
+#window.after(1000, open_enviro)
 window.mainloop()
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="682.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.raileader_rewrite.GuiController">
+   <children>
+      <AnchorPane layoutY="548.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="628.0" style="-fx-background-color: grey;">
+         <children>
+            <HBox alignment="CENTER" layoutX="26.0" layoutY="17.0" prefHeight="100.0" prefWidth="577.0" spacing="10.0">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="Start" />
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="Stop" />
+                  <Button fx:id="btnSchedule" mnemonicParsing="false" onAction="#goToSchedule" prefHeight="75.0" prefWidth="150.0" text="Feed Schedule" textAlignment="CENTER" wrapText="true" />
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="View Logs" />
+                  <Button mnemonicParsing="false" onAction="#goToDebug" prefHeight="75.0" prefWidth="150.0" text="Debug" />
+                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="Manual Mode" textAlignment="CENTER" wrapText="true" />
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="Settings" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <StackPane fx:id="graphPane" layoutX="14.0" layoutY="14.0" prefHeight="520.0" prefWidth="600.0" style="-fx-background-color: grey;" />
+   </children>
+</AnchorPane>

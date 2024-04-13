@@ -4,11 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.raileader_rewrite.DebugController">
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.raileader_rewrite.ManualControl">
    <children>
       <Button fx:id="closeButton" layoutX="14.0" layoutY="336.0" mnemonicParsing="false" onAction="#goToMenu" prefHeight="50.0" prefWidth="90.0" text="Back">
          <font>
             <Font size="15.0" />
-         </font></Button>
+         </font>
+      </Button>
    </children>
 </AnchorPane>

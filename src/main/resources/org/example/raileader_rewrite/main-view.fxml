@@ -12,14 +12,16 @@
                   <Button alignment="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="Start" />
                   <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="Stop" />
                   <Button fx:id="btnSchedule" mnemonicParsing="false" onAction="#goToSchedule" prefHeight="75.0" prefWidth="150.0" text="Feed Schedule" textAlignment="CENTER" wrapText="true" />
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="View Logs" />
-                  <Button mnemonicParsing="false" onAction="#goToDebug" prefHeight="75.0" prefWidth="150.0" text="Debug" />
-                  <Button mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="Manual Mode" textAlignment="CENTER" wrapText="true" />
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" text="Settings" />
+                  <Button fx:id="btnLogs" mnemonicParsing="false" onAction="#goToLogs" prefHeight="75.0" prefWidth="150.0" text="View Logs" />
+                  <Button fx:id="btnDebug" mnemonicParsing="false" onAction="#goToDebug" prefHeight="75.0" prefWidth="150.0" text="Debug" />
+                  <Button fx:id="btnManual" mnemonicParsing="false" onAction="#goToManualControl" prefHeight="75.0" prefWidth="150.0" text="Manual Mode" textAlignment="CENTER" wrapText="true" />
+                  <Button fx:id="btnSettings" alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="75.0" prefWidth="150.0" text="Settings" />
                </children>
             </HBox>
+            <Button fx:id="startBTN" layoutX="26.0" layoutY="2.0" mnemonicParsing="false" onAction="#start" prefHeight="25.0" prefWidth="74.0" text="Start" />
          </children>
       </AnchorPane>
       <StackPane fx:id="graphPane" layoutX="14.0" layoutY="14.0" prefHeight="520.0" prefWidth="600.0" style="-fx-background-color: grey;" />
+      <Label fx:id="clock" layoutX="20.0" prefHeight="17.0" prefWidth="59.0" />
    </children>
 </AnchorPane>

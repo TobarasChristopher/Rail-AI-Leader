@@ -1,6 +1,10 @@
 package org.example.raileader_rewrite;
 
+
 import com.mxgraph.view.mxGraph;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -24,6 +28,8 @@ import javafx.stage.Stage;
 import com.mxgraph.layout.*;
 import com.mxgraph.swing.*;
 import com.mxgraph.util.*;
+import logic.TrainScheduler;
+import nodefactory.Train;
 import org.jgrapht.*;
 import org.jgrapht.graph.*;
 import javafx.embed.swing.SwingNode;
@@ -42,6 +48,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.StackPane;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import java.io.IOException;
@@ -52,20 +61,19 @@ import javafx.stage.Stage;
 public class GuiController implements Initializable{
     @FXML
     private StackPane graphPane;
+    private mxGraph graph;
+    @FXML
+    private Label clock;
+    LayoutCreator layoutCreator = new LayoutCreator();
+
+    public List<Train> trains;
+    TrainScheduler trainScheduler = new TrainScheduler(graph, trains);
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SwingNode swingNode = new SwingNode();
-        mxGraph graph = new mxGraph();
-        Object parent = graph.getDefaultParent();
+        graph = layoutCreator.initLayout();
 
-        graph.getModel().beginUpdate();
-        try {
-            Object v1 = graph.insertVertex(parent, null, "Hello", 20, 20, 80, 30);
-            Object v2 = graph.insertVertex(parent, null, "World!", 240, 150, 80, 30);
-            graph.insertEdge(parent, null, "Edge", v1, v2);
-        } finally {
-            graph.getModel().endUpdate();
-        }
         graph.setDropEnabled(false);
         mxGraphComponent graphComponent = new mxGraphComponent(graph);
 
@@ -73,78 +81,76 @@ public class GuiController implements Initializable{
 
         graphPane.getChildren().add(swingNode);
 
+        startClock();
+
+
 
     }
 
-    /*protected Graph<String, DefaultEdge> graphLayout;
-
-    protected mxGraphComponent graphComponent;
-
-    public void initialize() {
-        // Create a new JGraphX graph
-        mxGraph jgxGraph = new mxGraph();
-        Object parent = jgxGraph.getDefaultParent();
-
-        // Initialize JGraphX graph component
-        graphComponent = new mxGraphComponent(jgxGraph);
-        graphComponent.setConnectable(false);
-        graphComponent.getGraph().setAllowDanglingEdges(false);
-        graphComponent.getGraph().setCellsDeletable(false);
-
-        // Set the size of the graph component to match the size of the graphPane
-        graphComponent.setSize(602,521);
-
-        // Create a SwingNode to hold the mxGraphComponent
-        SwingNode swingNode = new SwingNode();
-        swingNode.setContent(graphComponent);
-        // Add JGraphX graph component to the graphPane
-        graphPane.getChildren().add(swingNode);
-
-        // Create a new JGraphT graph
-        graphLayout = new DefaultUndirectedGraph<>(DefaultEdge.class);
-
-        // Handle adding nodes and edges dynamically
+    private void startClock(){
+        // Create a timeline to update the clock label every second
+        Timeline timeline = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), event -> {
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss"); // Format for displaying time
+            String formattedTime = sdf.format(new Date());
+            clock.setText(formattedTime);
+        }));
+        timeline.setCycleCount(Animation.INDEFINITE); // Run indefinitely
+        timeline.play(); // Start the timeline
     }
 
-    private void addNode(String nodeName) {
-        graphLayout.addVertex(nodeName);
-        graphComponent.getGraph().getModel().beginUpdate();
-        try {
-            graphComponent.getGraph().insertVertex(graphComponent.getGraph().getDefaultParent(), null, nodeName, 20, 20, 80, 30);
-        } finally {
-            graphComponent.getGraph().getModel().endUpdate();
-        }
-    }
-
-    // Method to add an edge to the graph
-    private void addEdge(String sourceNode, String targetNode) {
-        graphLayout.addEdge(sourceNode, targetNode);
-        graphComponent.getGraph().getModel().beginUpdate();
-        try {
-            graphComponent.getGraph().insertEdge(graphComponent.getGraph().getDefaultParent(), null, "", graphComponent.getGraph().getVertexToCellMap().get(sourceNode), graphComponent.getGraph().getVertexToCellMap().get(targetNode));
-        } finally {
-            graphComponent.getGraph().getModel().endUpdate();
-        }
-    }*/
 
 
 
     @FXML
     protected void goToSchedule(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/org/example/raileader_rewrite/schedule-view.fxml"));
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        openWindow("/org/example/raileader_rewrite/schedule-view.fxml");
     }
     @FXML
     protected void goToDebug(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/org/example/raileader_rewrite/debug-view.fxml"));
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        openWindow("/org/example/raileader_rewrite/debug-view.fxml");
+    }
+    @FXML
+    protected void goToSettings(ActionEvent event) throws IOException {
+        openWindow("/org/example/raileader_rewrite/setting-view.fxml");
+    }
+    @FXML
+    protected void goToManualControl(ActionEvent event) throws IOException {
+        openWindow("/org/example/raileader_rewrite/manual-view.fxml");
+    }
+    @FXML
+    protected void goToLogs(ActionEvent event) throws IOException {
+        openWindow("/org/example/raileader_rewrite/log-view.fxml");
+    }
+    private void openWindow(String fxmlPath) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = fxmlLoader.load();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    @FXML
+    public void start(ActionEvent event) throws IOException {
+        layoutCreator.start();
+        System.out.println("Start Pressed!");
+    }
+    @FXML
+    protected void removeNode(ActionEvent event) throws IOException {
+/*        graph.getModel().beginUpdate();
 
+        try {
+            Object[] selection = graph.getSelectionCells();
+            for (Object cell : selection) {
+                System.out.println(cell);
+                graph.getModel().remove(selection);
+            }
+        } finally {
+            graph.getModel().endUpdate();
+        }*/
+    }
 }
+

@@ -9,10 +9,15 @@ public class Train {
 
     Object pointOfOrigin;
 
-    public Train(String name, Object pointOfOrigin, Object destination){
+    String scheduledTime;
+    String arrivalTime;
+
+    public Train(String name, Object pointOfOrigin, Object destination, String scheduledTime, String arrivalTime){
         this.name = name;
         this.pointOfOrigin = pointOfOrigin;
         this.destination = destination;
+        this.scheduledTime = scheduledTime;
+        this.arrivalTime = arrivalTime;
 
     }
 
@@ -26,6 +31,14 @@ public class Train {
 
     public Object getPointOfOrigin(){
         return pointOfOrigin;
+    }
+
+    public String getScheduledTime(){
+        return scheduledTime;
+    }
+
+    public String getArrivalTime(){
+        return arrivalTime;
     }
 
 }

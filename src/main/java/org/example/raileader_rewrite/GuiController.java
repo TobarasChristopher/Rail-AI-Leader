@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import com.mxgraph.layout.*;
 import com.mxgraph.swing.*;
 import com.mxgraph.util.*;
+import logic.TimeManager;
 import logic.TrainScheduler;
 import nodefactory.Train;
 import org.jgrapht.*;
@@ -66,6 +67,8 @@ public class GuiController implements Initializable{
     private Label clock;
     LayoutCreator layoutCreator = new LayoutCreator();
 
+    TimeManager timeManager = TimeManager.getInstance();
+
     public List<Train> trains;
     TrainScheduler trainScheduler = new TrainScheduler(graph, trains);
 
@@ -90,9 +93,7 @@ public class GuiController implements Initializable{
     private void startClock(){
         // Create a timeline to update the clock label every second
         Timeline timeline = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), event -> {
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss"); // Format for displaying time
-            String formattedTime = sdf.format(new Date());
-            clock.setText(formattedTime);
+            clock.setText(timeManager.getCurrentTimeString());
         }));
         timeline.setCycleCount(Animation.INDEFINITE); // Run indefinitely
         timeline.play(); // Start the timeline

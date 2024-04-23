@@ -10,6 +10,7 @@ module org.example.raileader_rewrite {
     requires com.github.vlsi.mxgraph.jgraphx;
     requires org.jgrapht.core;
     requires javafx.swing;
+    requires junit;
 
     opens org.example.raileader_rewrite to javafx.fxml;
     exports org.example.raileader_rewrite;

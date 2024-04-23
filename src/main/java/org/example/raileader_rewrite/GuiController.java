@@ -69,9 +69,6 @@ public class GuiController implements Initializable{
 
     TimeManager timeManager = TimeManager.getInstance();
 
-    public List<Train> trains;
-    TrainScheduler trainScheduler = new TrainScheduler(graph, trains);
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SwingNode swingNode = new SwingNode();
@@ -136,22 +133,12 @@ public class GuiController implements Initializable{
 
     @FXML
     public void start(ActionEvent event) throws IOException {
-        layoutCreator.start();
-        System.out.println("Start Pressed!");
+        layoutCreator.Start();
     }
     @FXML
-    protected void removeNode(ActionEvent event) throws IOException {
-/*        graph.getModel().beginUpdate();
-
-        try {
-            Object[] selection = graph.getSelectionCells();
-            for (Object cell : selection) {
-                System.out.println(cell);
-                graph.getModel().remove(selection);
-            }
-        } finally {
-            graph.getModel().endUpdate();
-        }*/
+    public void Stop(ActionEvent event) throws IOException {
+        layoutCreator.Stop();
     }
+
 }
 

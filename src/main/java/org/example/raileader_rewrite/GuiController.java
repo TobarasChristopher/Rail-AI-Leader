@@ -7,56 +7,20 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import java.io.IOException;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import com.mxgraph.layout.*;
-import com.mxgraph.swing.*;
-import com.mxgraph.util.*;
 import logic.TimeManager;
-import logic.TrainScheduler;
-import nodefactory.Train;
-import org.jgrapht.*;
-import org.jgrapht.graph.*;
 import javafx.embed.swing.SwingNode;
-import javafx.application.Application;
-import javafx.embed.swing.SwingNode;
-import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import com.mxgraph.swing.mxGraphComponent;
-import com.mxgraph.view.mxGraph;
-import com.mxgraph.swing.mxGraphComponent;
-import com.mxgraph.view.mxGraph;
-import javafx.embed.swing.SwingNode;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.layout.StackPane;
 
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
-
-import java.io.IOException;
-import javafx.event.ActionEvent;
-import javafx.stage.Stage;
 
 
 public class GuiController implements Initializable{

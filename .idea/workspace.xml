@@ -6,13 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="6829c2f6-9269-4905-9a3e-1bce4d44576a" name="Changes" comment="Add GUI&#10;Add MXGraph&#10;Add Schedule-View">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/PathFinder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/TrainScheduler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nodefactory/GraphCell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nodefactory/Node.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nodefactory/PointOfInterest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/GuiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/PathFindTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/PathFindTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/logic/ScheduleManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/logic/ScheduleManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nodefactory/TrainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nodefactory/TrainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/raileader_rewrite/LayoutCreatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/raileader_rewrite/LayoutCreatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/PathFindTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,17 +242,12 @@
         </breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java</url>
-          <line>486</line>
+          <line>505</line>
           <properties class="org.example.raileader_rewrite.LayoutCreator" method="highlightPath">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/ScheduleView.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

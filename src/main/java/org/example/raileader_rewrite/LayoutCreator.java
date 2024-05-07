@@ -105,61 +105,53 @@ public class LayoutCreator {
             Object CN45Ex = createVertex("CN45Ex", "CN45Ex", 1700,200, 80, 30,"fillColor=grey");
 
 
-            //Object CApproach5 = createVertex("CApproachSignal5", "CApproachSignal5", 700, 180, 80, 30,"fillColor=lightblue");
-            //Object CApproach6 = createVertex("CApproachSignal6", "CApproachSignal6", 700, 250, 80, 30,"fillColor=lightblue");
-            //Object CApproach7 = createVertex("CApproachSignal7", "CApproachSignal7", 700, 320, 80, 30,"fillColor=lightblue");
-
-            //Object MLLEntrance = createVertex("MLLEntrance", "MLLEntrance", 20, 250, 80, 30,"fillColor=orange;ROUNDED");
-            //Object MLLEntranceAlt = createVertex("MLLEntranceAlt", "MLLEntranceAlt", 20, 180, 80, 30,"fillColor=orange");
-            //Object ConnollyApproach = createVertex("ConnollyApproach", "ConnollyApproach", 500, 110, 80, 30,"fillColor=lightblue");
-            //Object ConnollyApproachAlt = createVertex("ConnollyApproachAlt", "ConnollyApproachAlt", 500, 40, 80, 30,"fillColor=lightblue");
-            //Object MLLExit = createVertex("MLLExit", "MLLExit", -20, 320, 80, 30,"fillColor=orange");
-
-            /*Object v5 = createVertex("5", "5", 500, 250, 80, 30,"fillColor=lightblue");
-            Object v6 = createVertex("6", "6", 500, 250, 80, 30,"fillColor=lightblue");
-            Object v7 = createVertex("7", "7", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v8 = createVertex("8", "8", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v9 = createVertex("9", "9", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v10 = createVertex("10", "10", 20, 20, 80, 30,"fillColor=orange");
-            Object v11 = createVertex("11", "11", 20, 20, 80, 30,"fillColor=orange");
-            Object v12 = createVertex("12", "12", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v13 = createVertex("13", "13", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v14 = createVertex("14", "14", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v15 = createVertex("15", "15", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v16 = createVertex("16", "16", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v17 = createVertex("17", "17", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v18 = createVertex("18", "18", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v19 = createVertex("19", "19", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v20 = createVertex("20", "20", 20, 20, 80, 30,"fillColor=orange");
-            Object v21 = createVertex("21", "21", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v22 = createVertex("22", "22", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v23 = createVertex("23", "23", 20, 20, 80, 30,"fillColor=lightblue");
-            Object v24 = createVertex("24", "24", 20, 20, 80, 30,"fillColor=orange");*/
-
             graph.insertEdge(parent, null, "", CPlat31ConEx, CNPlatform1);
+            graph.insertEdge(parent, null, "", CNPlatform1, CPlat31ConEx);
             graph.insertEdge(parent, null, "", CPlat32Con, CNPlatform2);
+            graph.insertEdge(parent, null, "", CNPlatform2, CPlat32Con);
             graph.insertEdge(parent, null, "", CPlat32Con, CNPlatform3);
+            graph.insertEdge(parent, null, "", CNPlatform3, CPlat32Con);
             graph.insertEdge(parent, null, "", CPlat34ConEx, CNPlatform4);
+            graph.insertEdge(parent, null, "", CNPlatform4, CPlat34ConEx);
             graph.insertEdge(parent, null, "", CPlat54ConEn, CNPlatform5);
+            graph.insertEdge(parent, null, "", CNPlatform5, CPlat54ConEn);
             graph.insertEdge(parent, null, "", CPlat56ConEx, CNPlatform6);
+            graph.insertEdge(parent, null, "", CNPlatform6, CPlat56ConEx);
             graph.insertEdge(parent, null, "", CPlat67ConEx, CNPlatform7);
+            graph.insertEdge(parent, null, "", CNPlatform7, CPlat67ConEx);
 
             graph.insertEdge(parent, null, "", CPlat54ConEx, CPlat34ConEx);
+            graph.insertEdge(parent, null, "", CPlat34ConEx, CPlat54ConEx);
             graph.insertEdge(parent, null, "", CPlat34ConEn, CPlat32Con);
-
+            graph.insertEdge(parent, null, "", CPlat32Con, CPlat34ConEn);
             graph.insertEdge(parent, null, "", CPlat31ConSEn, CPlat31ConSEx);
+            graph.insertEdge(parent, null, "", CPlat31ConSEx, CPlat31ConSEn);
             graph.insertEdge(parent, null, "", CPlat31ConSEx, CPlat31ConEx);
+            graph.insertEdge(parent, null, "", CPlat31ConEx, CPlat31ConSEx);
             graph.insertEdge(parent, null, "", CPlat31ConEn, CPlat31ConEx);
+            graph.insertEdge(parent, null, "", CPlat31ConEx, CPlat31ConEn);
             graph.insertEdge(parent, null, "", CPlat31ConSEn, CPlat31ConEn);
+            graph.insertEdge(parent, null, "", CPlat31ConEn, CPlat31ConSEn);
             graph.insertEdge(parent, null, "", CPlat31ConEn, CPlat34ConEn);
+            graph.insertEdge(parent, null, "", CPlat34ConEn, CPlat31ConEn);
             graph.insertEdge(parent, null, "", CPlat34ConExS, CPlat54ConEx);
+            graph.insertEdge(parent, null, "", CPlat54ConEx, CPlat34ConExS);
             graph.insertEdge(parent, null, "", CPlat34ConEnS, CPlat31ConSEn);
+            graph.insertEdge(parent, null, "", CPlat31ConSEn, CPlat34ConEnS);
             graph.insertEdge(parent, null, "", CPlat34ConEn, CPlat34ConEx);
+            graph.insertEdge(parent, null, "", CPlat34ConEx, CPlat34ConEn);
+
+
+
 
             graph.insertEdge(parent, null, "", CPlat56AConEx, CPlat56ConEn);
+            graph.insertEdge(parent, null, "", CPlat56ConEn, CPlat56AConEx);
             graph.insertEdge(parent, null, "", CPlat56AConEn, CPlat67ConEn);
+            graph.insertEdge(parent, null, "", CPlat67ConEn, CPlat56AConEn);
             graph.insertEdge(parent, null, "", CPlat67ConEn, CPlat56ConEx);
+            graph.insertEdge(parent, null, "", CPlat56ConEx, CPlat67ConEn);
             graph.insertEdge(parent, null, "", CPlat67ConEn, CPlat67ConEx);
+            graph.insertEdge(parent, null, "", CPlat67ConEx, CPlat67ConEn);
 
 
             graph.insertEdge(parent, null, "", CPlat54ConEn, CPlat54ConEx);
@@ -167,73 +159,52 @@ public class LayoutCreator {
             graph.insertEdge(parent, null, "", CPlat56AConEn, CPlat56AConEx);
             graph.insertEdge(parent, null, "", CPlat56ConEn, CPlat56ConEx);
             graph.insertEdge(parent, null, "", CPlat34ConEnS, CPlat34ConExS);
+            graph.insertEdge(parent, null, "", CPlat54ConEx, CPlat54ConEn);
+            graph.insertEdge(parent, null, "", CPlat54ConEn, CPlat56ConEn);
+            graph.insertEdge(parent, null, "", CPlat56AConEx, CPlat56AConEn);
+            graph.insertEdge(parent, null, "", CPlat56ConEx, CPlat56ConEn);
+            graph.insertEdge(parent, null, "", CPlat34ConExS, CPlat34ConEnS);
+
+
+
+
 
             graph.insertEdge(parent, null, "", C35ConEn, C35ConEx);
+            graph.insertEdge(parent, null, "", C35ConEx, C35ConEn);
             graph.insertEdge(parent, null, "", C35ConEn, CPlat34ConEnS);
+            graph.insertEdge(parent, null, "", CPlat34ConEnS, C35ConEn);
             graph.insertEdge(parent, null, "", C35ConEx, CPlat56AConEx);
+            graph.insertEdge(parent, null, "", CPlat56AConEx, C35ConEx);
+
+
 
             graph.insertEdge(parent, null, "", CNMaynoothN, CPlat56AConEn);
+            graph.insertEdge(parent, null, "", CPlat56AConEn, CNMaynoothN);
             graph.insertEdge(parent, null, "", CNMaynoothS, CPlat67ConEx);
+            graph.insertEdge(parent, null, "", CPlat67ConEx, CNMaynoothS);
+
+
 
             graph.insertEdge(parent, null, "", CN65Ex, C35ConEx);
             graph.insertEdge(parent, null, "", CN45Ex, CPlat34ConExS);
+            graph.insertEdge(parent, null, "", C35ConEx, CN65Ex);
+            graph.insertEdge(parent, null, "", CPlat34ConExS, CN45Ex);
 
             graph.insertEdge(parent, null, "", CN65En, CN76Ex);
             graph.insertEdge(parent, null, "", CN76Ex, CNMaynoothN);
+            graph.insertEdge(parent, null, "", CN76Ex, CN65En);
+            graph.insertEdge(parent, null, "", CNMaynoothN, CN76Ex);
+
+
             graph.insertEdge(parent, null, "", CN76En, CNMaynoothS);
+            graph.insertEdge(parent, null, "", CNMaynoothS, CN76En);
+
 
 
             graph.insertEdge(parent, null, "", CN65En, CN65Ex);
             graph.insertEdge(parent, null, "", CN45Ex, CN65Ex);
-
-
-
-
-
-            /*graph.insertEdge(parent, null, "", MLLEntranceAlt, ConnollyApproachAlt,"ROUNDED");
-            graph.insertEdge(parent, null, "", ConnollyApproachAlt, ConnollyPlatform1,"ROUNDED");
-            graph.insertEdge(parent, null, "", ConnollyApproachAlt, ConnollyPlatform2);
-            graph.insertEdge(parent, null, "", ConnollyApproachAlt, ConnollyPlatform3);
-            graph.insertEdge(parent, null, "", ConnollyApproachAlt, ConnollyPlatform4);
-
-            graph.insertEdge(parent, null, "", ConnollyApproach, ConnollyPlatform4);
-
-            graph.insertEdge(parent, null, "", ConnollyThroughApproach5, ConnollyPlatform4);
-            graph.insertEdge(parent, null, "", ConnollyThroughApproach5, ConnollyPlatform5);
-            graph.insertEdge(parent, null, "", ConnollyThroughApproach5, ConnollyPlatform6);
-
-            graph.insertEdge(parent, null, "", ConnollyThroughApproach6, ConnollyPlatform6);
-            graph.insertEdge(parent, null, "", ConnollyThroughApproach6, ConnollyPlatform7);
-
-            graph.insertEdge(parent, null, "", ConnollyThroughApproach7, ConnollyPlatform7);
-
-            graph.insertEdge(parent, null, "", ConnollyPlatform7, MLLExit);
-            graph.insertEdge(parent, null, "", MLLEntrance, ConnollyApproach);
-            graph.insertEdge(parent, null, "", MLLEntrance, ConnollyThroughApproach5);
-            graph.insertEdge(parent, null, "", MLLEntrance, ConnollyThroughApproach6);*/
-
-            /*graph.insertEdge(parent, null, "", v9, v10);
-            graph.insertEdge(parent, null, "", v11, v12);
-            graph.insertEdge(parent, null, "", v12, v13);
-            graph.insertEdge(parent, null, "", v13, v14);
-            graph.insertEdge(parent, null, "", v14, v15);
-            graph.insertEdge(parent, null, "", v15, v16);
-            graph.insertEdge(parent, null, "", v16, v17);
-            graph.insertEdge(parent, null, "", v17, v18);
-            graph.insertEdge(parent, null, "", v18, v19);
-            graph.insertEdge(parent, null, "", v19, v20);
-            graph.insertEdge(parent, null, "", v14, v5);
-
-            graph.insertEdge(parent, null, "", v16, v21);
-            graph.insertEdge(parent, null, "", v21, v22);
-            graph.insertEdge(parent, null, "", v22, v23);
-            graph.insertEdge(parent, null, "", v23, v24);*/
-
-
-
-
-
-
+            graph.insertEdge(parent, null, "", CN65Ex, CN65En);
+            graph.insertEdge(parent, null, "", CN65Ex, CN45Ex);
 
 
         } finally {
@@ -331,7 +302,7 @@ public class LayoutCreator {
 
             // Create a new thread for each train
             Thread thread = new Thread(() -> {
-                List<Object> activePath = findPath(train); // Find the path for the train
+                List<Object> activePath = findPathDFS(train.getPointOfOrigin(),train.getDestination()); // Find the path for the train
 
 
                 if (!activePath.isEmpty()) {
@@ -390,7 +361,7 @@ public class LayoutCreator {
     }
 
 
-    public synchronized List<Object> findPath(Train train) {
+    /*public synchronized List<Object> findPath(Train train) {
         Object origin = train.getPointOfOrigin();
         Object destination = train.getDestination();
         boolean pathFound = false;
@@ -454,16 +425,28 @@ public class LayoutCreator {
             Object targetCell = graph.getModel().getTerminal(nextEdge, false);  //find the target cell
 
 
-            if (targetCell != null) {                                               //if target aint empty
-                //pathCells.add(nextEdge); // Add the edge to pathCells             //add to list
-                pathCells.add(targetCell); // Add the target vertex to pathCells
-                currentCell = targetCell;                                           //make current cell
+            while (targetCell != null && activePath.contains(currentCell) && activePath.contains(targetCell)) {
+                // If so, continue popping edges until finding an unvisited target cell or until the stack is empty
+                if (!nodeList.isEmpty()) {
+                    nextEdge = nodeList.pop();
+                    targetCell = graph.getModel().getTerminal(nextEdge, false);
+                } else {
+                    // Handle the case where the stack is empty
+                    targetCell = null;
+                    break;
+                }
+
+            }
+
+            if (targetCell != null) { // If target is not null (i.e., a valid cell)
+                // Add the target cell to the path and update currentCell
+                pathCells.add(targetCell);
+                currentCell = targetCell;
                 activePath.add(currentCell);
-
             } else {
-                System.out.println("Error! No target cell found? How does this even happen");
+                // Handle the case where no unvisited target cell is found
+                System.out.println("Error! No unvisited target cell found.");
                 break;
-
             }
 
         }
@@ -482,6 +465,42 @@ public class LayoutCreator {
         return activePath;
 
 
+    }*/
+
+    public List<Object> findPathDFS(Object origin, Object destination) {
+        Set<Object> visited = new HashSet<>();
+        List<Object> path = new ArrayList<>();
+        dfs(origin, destination, visited, path);
+        return path;
+    }
+
+    private boolean dfs(Object currentCell, Object destination, Set<Object> visited, List<Object> path) {
+        if (visited.contains(currentCell)) {
+            return false; // Detected a cycle, return false to stop traversing this path
+        }
+
+        visited.add(currentCell);
+        path.add(currentCell);
+
+        if (currentCell.equals(destination)) {
+            return true; // Destination found, return true
+        }
+
+        Object[] edges = graph.getEdges(currentCell); // Get edges connected to the current cell
+
+        for (Object edge : edges) {
+            Object neighbor = graph.getModel().getTerminal(edge, false); // Get the neighboring cell
+            if (!visited.contains(neighbor)) { // Check if neighbor has not been visited
+                if (dfs(neighbor, destination, visited, path)) { // Recursively explore neighbor
+                    return true; // If destination is found, return true
+                }
+            }
+        }
+
+        // Backtrack: Remove current cell from path
+        path.remove(path.size() - 1);
+        visited.remove(currentCell); // Remove current cell from visited set as well
+        return false;
     }
 
     public synchronized void highlightPath(List<Object> activePath ) {

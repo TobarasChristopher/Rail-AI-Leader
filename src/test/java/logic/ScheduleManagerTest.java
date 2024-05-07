@@ -26,8 +26,8 @@ class ScheduleManagerTest {
         List<String[]> newData = new ArrayList<>();
 
         newData = scheduleManager.getRawData();
-        assertFalse(newData.isEmpty(), "Data is received once");
+        assertFalse(newData.isEmpty(), "Data isnt recieved");
         newData = scheduleManager.getRawData();
-        assertNull(newData, "Data is null as it is already sent");
+        assertNull(newData, "Data hasnt been cleared");
     }
 }

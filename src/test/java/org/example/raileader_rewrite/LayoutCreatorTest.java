@@ -25,14 +25,14 @@ class LayoutCreatorTest {
     @Test
     void findPath() {
         train = new Train("TestTrain",vertexMap.get("C35ConEn"),vertexMap.get("CNPlatform1"),"TEST","TEST");
-        List<Object> path = layoutCreator.findPath(train);
+        List<Object> path = layoutCreator.findPathDFS(train.getPointOfOrigin(),train.getDestination());
         assertNotNull(path, "The path returned must exist");
         assertFalse(path.isEmpty(), "The path returned must have entries");
     }
     @Test
     void findNoPath() {
         train = new Train("TestTrain",vertexMap.get("C35ConEn"),vertexMap.get("CN65Ex"),"TEST","TEST");
-        List<Object> path = layoutCreator.findPath(train);
+        List<Object> path = layoutCreator.findPathDFS(train.getPointOfOrigin(),train.getDestination());
         assertNotNull(path, "The path returned must exist");
         assertTrue(path.isEmpty(), "The path returned must not contain anything");
     }
@@ -42,25 +42,25 @@ class LayoutCreatorTest {
         graph = layoutCreator.initLayout();
         graph.getModel().setStyle(vertexMap.get("CPlat34ConEnS"), "fillColor=red");
         train = new Train("TestTrain",vertexMap.get("C35ConEn"),vertexMap.get("CNPlatform1"),"TEST","TEST");
-        List<Object> path = layoutCreator.findPath(train);
+        List<Object> path = layoutCreator.findPathDFS(train.getPointOfOrigin(),train.getDestination());
         boolean check = layoutCreator.checkForLock(path, "fillColor=red");
         assertTrue(check, "The path must be detected as occupied");
     }
     @Test
     void checkForNoLock() {
         train = new Train("TestTrain",vertexMap.get("C35ConEn"),vertexMap.get("CNPlatform1"),"TEST","TEST");
-        List<Object> path = layoutCreator.findPath(train);
+        List<Object> path = layoutCreator.findPathDFS(train.getPointOfOrigin(),train.getDestination());
         boolean check = layoutCreator.checkForLock(path, "fillColor=red");
         assertFalse(check, "The path must be detected as free");
     }
 
-    //System Tests
+    //Unit Tests
     @Test
     void PathHighlightTest() {
         boolean check = true;
 
         train = new Train("TestTrain",vertexMap.get("C35ConEn"),vertexMap.get("CNPlatform1"),"TEST","TEST");
-        List<Object> path = layoutCreator.findPath(train);
+        List<Object> path = layoutCreator.findPathDFS(train.getPointOfOrigin(),train.getDestination());
         layoutCreator.highlightPath(path);
         for (Object cell : path) {
             if(!Objects.equals(graph.getModel().getStyle(cell), "fillColor=red")){

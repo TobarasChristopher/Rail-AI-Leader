@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6829c2f6-9269-4905-9a3e-1bce4d44576a" name="Changes" comment="Add GUI&#10;Add MXGraph&#10;Add Schedule-View">
+      <change afterPath="$PROJECT_DIR$/src/main/java/logic/ExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/logic/PathFinder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/logic/TrainScheduler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nodefactory/GraphCell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nodefactory/Node.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nodefactory/PointOfInterest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/GuiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/PathFindTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LogsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LogsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/log-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/log-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/logic/ScheduleManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/logic/ScheduleManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/raileader_rewrite/LayoutCreatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/raileader_rewrite/LayoutCreatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,42 +50,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.LayoutCreatorTest.PathHighlightTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LayoutCreatorTest.checkForLock.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LayoutCreatorTest.checkForNoLock.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LayoutCreatorTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LayoutCreatorTest.findNoPath.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LayoutCreatorTest.findPath.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PathFindTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PathFindTest.testPathfindingWithValidPath.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ScheduleManagerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ScheduleManagerTest.getRawData.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TrainTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TrainTest.getName.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.RAILeader_Rewrite [test].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Ctobar1&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.43218392&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.MainApplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.LayoutCreatorTest.PathHighlightTest.executor": "Run",
+    "JUnit.LayoutCreatorTest.checkForLock.executor": "Run",
+    "JUnit.LayoutCreatorTest.checkForNoLock.executor": "Run",
+    "JUnit.LayoutCreatorTest.executor": "Run",
+    "JUnit.LayoutCreatorTest.findNoPath.executor": "Run",
+    "JUnit.LayoutCreatorTest.findPath.executor": "Run",
+    "JUnit.PathFindTest.executor": "Run",
+    "JUnit.PathFindTest.testPathfindingWithValidPath.executor": "Run",
+    "JUnit.ScheduleManagerTest.executor": "Run",
+    "JUnit.ScheduleManagerTest.getRawData.executor": "Run",
+    "JUnit.TrainTest.executor": "Run",
+    "JUnit.TrainTest.getName.executor": "Run",
+    "Maven.RAILeader_Rewrite [test].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "UndirectedTest",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.43218392",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.raileader_rewrite" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -242,7 +244,7 @@
         </breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java</url>
-          <line>505</line>
+          <line>514</line>
           <properties class="org.example.raileader_rewrite.LayoutCreator" method="highlightPath">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

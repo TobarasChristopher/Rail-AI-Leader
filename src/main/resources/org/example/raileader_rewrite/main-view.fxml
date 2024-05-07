@@ -3,8 +3,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="682.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.raileader_rewrite.GuiController">
+<VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.raileader_rewrite.GuiController">
    <children>
+      <StackPane fx:id="graphPane" layoutX="14.0" layoutY="14.0" prefHeight="520.0" prefWidth="600.0" style="-fx-background-color: grey;" />
+      <Label fx:id="clock" layoutX="20.0" prefHeight="17.0" prefWidth="59.0" />
       <AnchorPane layoutY="548.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="628.0" style="-fx-background-color: grey;">
          <children>
             <HBox alignment="CENTER" layoutX="26.0" layoutY="17.0" prefHeight="100.0" prefWidth="577.0" spacing="10.0">
@@ -14,13 +16,10 @@
                   <Button fx:id="btnSchedule" mnemonicParsing="false" onAction="#goToSchedule" prefHeight="75.0" prefWidth="150.0" text="Feed Schedule" textAlignment="CENTER" wrapText="true" />
                   <Button fx:id="btnLogs" mnemonicParsing="false" onAction="#goToLogs" prefHeight="75.0" prefWidth="150.0" text="View Logs" />
                   <Button fx:id="btnDebug" mnemonicParsing="false" onAction="#goToDebug" prefHeight="75.0" prefWidth="150.0" text="Debug" />
-                  <Button fx:id="btnManual" mnemonicParsing="false" onAction="#goToManualControl" prefHeight="75.0" prefWidth="150.0" text="Manual Mode" textAlignment="CENTER" wrapText="true" />
                   <Button fx:id="btnSettings" alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="75.0" prefWidth="150.0" text="Settings" />
                </children>
             </HBox>
          </children>
       </AnchorPane>
-      <StackPane fx:id="graphPane" layoutX="14.0" layoutY="14.0" prefHeight="520.0" prefWidth="600.0" style="-fx-background-color: grey;" />
-      <Label fx:id="clock" layoutX="20.0" prefHeight="17.0" prefWidth="59.0" />
    </children>
-</AnchorPane>
+</VBox>

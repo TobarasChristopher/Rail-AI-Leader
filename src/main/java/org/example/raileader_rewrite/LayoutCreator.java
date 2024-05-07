@@ -1,8 +1,9 @@
 package org.example.raileader_rewrite;
 
-
+import java.io.IOException;
 import com.mxgraph.model.mxCell;
 import com.mxgraph.view.mxGraph;
+import logic.ExceptionHandler;
 import logic.ScheduleManager;
 import logic.TimeManager;
 import nodefactory.Train;
@@ -16,6 +17,7 @@ public class LayoutCreator {
     public mxGraph graph = new mxGraph();
     public Object parent = graph.getDefaultParent();
     TimeManager timeManager = TimeManager.getInstance();
+    ExceptionHandler exceptionHandler = ExceptionHandler.getInstance();
     public HashMap<String, Object> vertexMap = new HashMap<>();
     private Map<Object, String> originalStyles = new HashMap<>();
 
@@ -104,54 +106,45 @@ public class LayoutCreator {
             Object CN65En = createVertex("CN65En", "CN65En", 1700,80, 80, 30,"fillColor=grey");
             Object CN45Ex = createVertex("CN45Ex", "CN45Ex", 1700,200, 80, 30,"fillColor=grey");
 
+            Object CN64En = createVertex("CN64En", "CN64En", 1980,80, 80, 30,"fillColor=grey");
+
+
+            Object ConnollyNorthEx = createVertex("ConnollyNorthEx", "ConnollyNorthEx", 2260,20, 80, 30,"fillColor=green");
+            Object ConnollyNorthEn = createVertex("ConnollyNorthEn", "ConnollyNorthEn", 2260,80, 80, 30,"fillColor=green");
+            Object ConnollyNorthShunt = createVertex("ConnollyNorthShunt", "ConnollyNorthShunt", 2260,140, 80, 30,"fillColor=green");
+
+            Object C65En = createVertex("C65En", "C65En", 2120,80, 80, 30,"fillColor=grey");
+            Object C65Ex = createVertex("C65Ex", "C65Ex", 1980,140, 80, 30,"fillColor=grey");
+            Object CN3Node = createVertex("CN3Node", "CN3Node", 1700,260, 80, 30,"fillColor=grey");
+
+
+
+
 
             graph.insertEdge(parent, null, "", CPlat31ConEx, CNPlatform1);
-            graph.insertEdge(parent, null, "", CNPlatform1, CPlat31ConEx);
             graph.insertEdge(parent, null, "", CPlat32Con, CNPlatform2);
-            graph.insertEdge(parent, null, "", CNPlatform2, CPlat32Con);
             graph.insertEdge(parent, null, "", CPlat32Con, CNPlatform3);
-            graph.insertEdge(parent, null, "", CNPlatform3, CPlat32Con);
             graph.insertEdge(parent, null, "", CPlat34ConEx, CNPlatform4);
-            graph.insertEdge(parent, null, "", CNPlatform4, CPlat34ConEx);
             graph.insertEdge(parent, null, "", CPlat54ConEn, CNPlatform5);
-            graph.insertEdge(parent, null, "", CNPlatform5, CPlat54ConEn);
             graph.insertEdge(parent, null, "", CPlat56ConEx, CNPlatform6);
-            graph.insertEdge(parent, null, "", CNPlatform6, CPlat56ConEx);
             graph.insertEdge(parent, null, "", CPlat67ConEx, CNPlatform7);
-            graph.insertEdge(parent, null, "", CNPlatform7, CPlat67ConEx);
 
             graph.insertEdge(parent, null, "", CPlat54ConEx, CPlat34ConEx);
-            graph.insertEdge(parent, null, "", CPlat34ConEx, CPlat54ConEx);
             graph.insertEdge(parent, null, "", CPlat34ConEn, CPlat32Con);
-            graph.insertEdge(parent, null, "", CPlat32Con, CPlat34ConEn);
+
             graph.insertEdge(parent, null, "", CPlat31ConSEn, CPlat31ConSEx);
-            graph.insertEdge(parent, null, "", CPlat31ConSEx, CPlat31ConSEn);
             graph.insertEdge(parent, null, "", CPlat31ConSEx, CPlat31ConEx);
-            graph.insertEdge(parent, null, "", CPlat31ConEx, CPlat31ConSEx);
             graph.insertEdge(parent, null, "", CPlat31ConEn, CPlat31ConEx);
-            graph.insertEdge(parent, null, "", CPlat31ConEx, CPlat31ConEn);
             graph.insertEdge(parent, null, "", CPlat31ConSEn, CPlat31ConEn);
-            graph.insertEdge(parent, null, "", CPlat31ConEn, CPlat31ConSEn);
             graph.insertEdge(parent, null, "", CPlat31ConEn, CPlat34ConEn);
-            graph.insertEdge(parent, null, "", CPlat34ConEn, CPlat31ConEn);
             graph.insertEdge(parent, null, "", CPlat34ConExS, CPlat54ConEx);
-            graph.insertEdge(parent, null, "", CPlat54ConEx, CPlat34ConExS);
             graph.insertEdge(parent, null, "", CPlat34ConEnS, CPlat31ConSEn);
-            graph.insertEdge(parent, null, "", CPlat31ConSEn, CPlat34ConEnS);
             graph.insertEdge(parent, null, "", CPlat34ConEn, CPlat34ConEx);
-            graph.insertEdge(parent, null, "", CPlat34ConEx, CPlat34ConEn);
-
-
-
 
             graph.insertEdge(parent, null, "", CPlat56AConEx, CPlat56ConEn);
-            graph.insertEdge(parent, null, "", CPlat56ConEn, CPlat56AConEx);
             graph.insertEdge(parent, null, "", CPlat56AConEn, CPlat67ConEn);
-            graph.insertEdge(parent, null, "", CPlat67ConEn, CPlat56AConEn);
             graph.insertEdge(parent, null, "", CPlat67ConEn, CPlat56ConEx);
-            graph.insertEdge(parent, null, "", CPlat56ConEx, CPlat67ConEn);
             graph.insertEdge(parent, null, "", CPlat67ConEn, CPlat67ConEx);
-            graph.insertEdge(parent, null, "", CPlat67ConEx, CPlat67ConEn);
 
 
             graph.insertEdge(parent, null, "", CPlat54ConEn, CPlat54ConEx);
@@ -159,52 +152,48 @@ public class LayoutCreator {
             graph.insertEdge(parent, null, "", CPlat56AConEn, CPlat56AConEx);
             graph.insertEdge(parent, null, "", CPlat56ConEn, CPlat56ConEx);
             graph.insertEdge(parent, null, "", CPlat34ConEnS, CPlat34ConExS);
-            graph.insertEdge(parent, null, "", CPlat54ConEx, CPlat54ConEn);
-            graph.insertEdge(parent, null, "", CPlat54ConEn, CPlat56ConEn);
-            graph.insertEdge(parent, null, "", CPlat56AConEx, CPlat56AConEn);
-            graph.insertEdge(parent, null, "", CPlat56ConEx, CPlat56ConEn);
-            graph.insertEdge(parent, null, "", CPlat34ConExS, CPlat34ConEnS);
-
-
-
-
 
             graph.insertEdge(parent, null, "", C35ConEn, C35ConEx);
-            graph.insertEdge(parent, null, "", C35ConEx, C35ConEn);
             graph.insertEdge(parent, null, "", C35ConEn, CPlat34ConEnS);
-            graph.insertEdge(parent, null, "", CPlat34ConEnS, C35ConEn);
             graph.insertEdge(parent, null, "", C35ConEx, CPlat56AConEx);
-            graph.insertEdge(parent, null, "", CPlat56AConEx, C35ConEx);
-
-
 
             graph.insertEdge(parent, null, "", CNMaynoothN, CPlat56AConEn);
-            graph.insertEdge(parent, null, "", CPlat56AConEn, CNMaynoothN);
             graph.insertEdge(parent, null, "", CNMaynoothS, CPlat67ConEx);
-            graph.insertEdge(parent, null, "", CPlat67ConEx, CNMaynoothS);
-
-
 
             graph.insertEdge(parent, null, "", CN65Ex, C35ConEx);
             graph.insertEdge(parent, null, "", CN45Ex, CPlat34ConExS);
-            graph.insertEdge(parent, null, "", C35ConEx, CN65Ex);
-            graph.insertEdge(parent, null, "", CPlat34ConExS, CN45Ex);
 
             graph.insertEdge(parent, null, "", CN65En, CN76Ex);
             graph.insertEdge(parent, null, "", CN76Ex, CNMaynoothN);
-            graph.insertEdge(parent, null, "", CN76Ex, CN65En);
-            graph.insertEdge(parent, null, "", CNMaynoothN, CN76Ex);
-
-
             graph.insertEdge(parent, null, "", CN76En, CNMaynoothS);
-            graph.insertEdge(parent, null, "", CNMaynoothS, CN76En);
-
 
 
             graph.insertEdge(parent, null, "", CN65En, CN65Ex);
             graph.insertEdge(parent, null, "", CN45Ex, CN65Ex);
-            graph.insertEdge(parent, null, "", CN65Ex, CN65En);
-            graph.insertEdge(parent, null, "", CN65Ex, CN45Ex);
+            graph.insertEdge(parent, null, "", CN76En, CN76Ex);
+
+            graph.insertEdge(parent, null, "", ConnollyNorthEx, CN76En);
+            graph.insertEdge(parent, null, "", CN3Node, C35ConEn);
+
+            graph.insertEdge(parent, null, "", ConnollyNorthEn, C65En);
+            graph.insertEdge(parent, null, "", C65En, CN64En);
+            graph.insertEdge(parent, null, "", C65En, C65Ex);
+
+            graph.insertEdge(parent, null, "", CN64En, CN65En);
+            graph.insertEdge(parent, null, "", CN64En, CN45Ex);
+
+            graph.insertEdge(parent, null, "", C65Ex, CN3Node);
+            graph.insertEdge(parent, null, "", ConnollyNorthShunt, C65Ex);
+
+
+
+
+
+            graph.setCellsLocked(true);
+            graph.setCellsMovable(false);
+            graph.setCellsDeletable(false);
+            graph.setCellsSelectable(false);
+            graph.setConnectableEdges(false);
 
 
         } finally {
@@ -212,13 +201,7 @@ public class LayoutCreator {
         }
 
 
-        /*mxIGraphLayout layout = new mxHierarchicalLayout(graph);
-        ((mxHierarchicalLayout) layout).setOrientation(SwingConstants.WEST);
-        ((mxHierarchicalLayout) layout).setInterHierarchySpacing(2000); // Adjust horizontal spacing between cell layers
-        ((mxHierarchicalLayout) layout).setIntraCellSpacing(30); // Adjust spacing between elements
 
-
-        layout.execute(parent);*/
     }
 
     public mxGraph initLayout() {
@@ -237,19 +220,39 @@ public class LayoutCreator {
     private void ImportTrains(){
         List<String[]> rawData = scheduleManager.getRawData();
 
-        if (rawData != null && !rawData.isEmpty()) {
-            for (String[] row : rawData) {
-                String name = row[0];
-                String pointOfOrigin = row[1];
-                String destination = row[2];
-                String scheduledTime = row[3];
-                String arrivalTime = row[4];
+        try{
+            if (rawData != null && !rawData.isEmpty()) {
+                for (String[] row : rawData) {
 
-                Train train = new Train(name, vertexMap.get(pointOfOrigin), vertexMap.get(destination), scheduledTime, arrivalTime);
-                System.out.println(train);
-                storedTrains.add(train);
+                    if (row.length < 5) {
+                        throw new IllegalArgumentException("Incomplete data row: " + Arrays.toString(row));
+                    }
+
+                    String name = row[0];
+                    String pointOfOrigin = row[1];
+                    String destination = row[2];
+                    String scheduledTime = row[3];
+                    String arrivalTime = row[4];
+
+                    Object originobj = vertexMap.get(pointOfOrigin);
+                    Object destinationobj = vertexMap.get(destination);
+
+                    if (originobj == null){
+                        throw new IllegalArgumentException("Origin does not match layout cells!");
+                    }
+                    if (destinationobj == null){
+                        throw new IllegalArgumentException("Destination does not match layout cells!");
+                    }
+
+                    Train train = new Train(name, originobj, destinationobj, scheduledTime, arrivalTime);
+                    System.out.println(train);
+                    storedTrains.add(train);
+                }
             }
+        } catch (IllegalArgumentException e) {
+            exceptionHandler.handleException(e, "An error occurred!", "Invalid data; Missing one or more fields! " + e.getMessage());
         }
+
     }
     private void CheckStoredTrains() {
 
@@ -271,19 +274,15 @@ public class LayoutCreator {
         Object origin = train.getPointOfOrigin();
 
 
-        Object cell = graph.getModel().setValue(origin, train.getName());
-        trainsQ.offer(train);
+        try{
+            Object cell = graph.getModel().setValue(origin, train.getName());
+            trainsQ.offer(train);
+        } catch (Exception e){
 
-    }
-    public void setCellValue(Object cell, String value) {
-        graph.getModel().beginUpdate();
-        try {
-            if (cell instanceof mxCell) {
-                graph.getModel().setValue(cell, value);
-            }
-        } finally {
-            graph.getModel().endUpdate();
+            exceptionHandler.handleException(e, "An error occurred!", train.getName()+" cannot be placed on its origin because it does not exist!");
         }
+
+
     }
 
     public void Start(){
@@ -309,13 +308,13 @@ public class LayoutCreator {
                     boolean containsColorStyle = checkForLock(activePath, "fillColor=red");
                     while (containsColorStyle) {
                         // Perform action if any node in the path contains the desired color style
-                        System.out.println("Path occupied!.");
+                        //System.out.println("Path occupied!.");
                         try {
                             // Sleep for a set amount of time (e.g., 5 seconds)
                             Thread.sleep(3000); // Sleep for 5 seconds (5000 milliseconds)
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
-                            System.err.println("Thread interrupted while sleeping: " + e.getMessage());
+                            exceptionHandler.handleException(e,e.getMessage(),"Thread for train"+train.getName()+"interrupted while sleeping: ");
                             return; // Exit the thread if interrupted
                         }
                         containsColorStyle = checkForLock(activePath, "fillColor=red");
@@ -327,7 +326,7 @@ public class LayoutCreator {
                         Thread.sleep(5000); // Sleep for 5 seconds (5000 milliseconds)
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
-                        System.err.println("Thread interrupted while sleeping: " + e.getMessage());
+                        exceptionHandler.handleException(e,e.getMessage(),"Thread for train"+train.getName()+"interrupted while sleeping: ");
                         return; // Exit the thread if interrupted
                     }
 
@@ -337,14 +336,24 @@ public class LayoutCreator {
                         Thread.sleep(5000); // Sleep for 5 seconds (5000 milliseconds)
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
-                        System.err.println("Thread interrupted while sleeping: " + e.getMessage());
+                        exceptionHandler.handleException(e,e.getMessage(),"Thread for train"+train.getName()+"interrupted while sleeping: ");
                         return; // Exit the thread if interrupted
                     }
                     resetCellColors();
 
 
                 } else {
-                    System.out.println("Train " + train.getName() + " could not be moved");
+                    Exception er = new Exception();
+                    exceptionHandler.handleException(er,er.getMessage(),train.getName() + " could not be moved! An Impossible path was found!");
+                    try {
+                        // Sleep for a set amount of time (e.g., 5 seconds)
+                        Thread.sleep(10000); // Sleep for 5 seconds (5000 milliseconds)
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        exceptionHandler.handleException(e,e.getMessage(),"Thread for train"+train.getName()+"interrupted while sleeping: ");
+                        return; // Exit the thread if interrupted
+                    }
+                    Object cell1 = graph.getModel().setValue(train.getPointOfOrigin(), "");
                 }
             });
 

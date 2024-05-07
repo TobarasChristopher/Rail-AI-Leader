@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6829c2f6-9269-4905-9a3e-1bce4d44576a" name="Changes" comment="Add GUI&#10;Add MXGraph&#10;Add Schedule-View">
-      <change afterPath="$PROJECT_DIR$/src/main/java/logic/ExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LogsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LogsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/log-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/log-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/logic/ScheduleManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/logic/ScheduleManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/raileader_rewrite/LayoutCreatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/raileader_rewrite/LayoutCreatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +238,7 @@
         </breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java</url>
-          <line>514</line>
+          <line>540</line>
           <properties class="org.example.raileader_rewrite.LayoutCreator" method="highlightPath">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

@@ -117,10 +117,13 @@ public class LayoutCreator {
             Object C65Ex = createVertex("C65Ex", "C65Ex", 1980,140, 80, 30,"fillColor=grey");
             Object CN3Node = createVertex("CN3Node", "CN3Node", 1700,260, 80, 30,"fillColor=grey");
 
+            Object MaynoothNEx = createVertex("CN76Ex", "CN76Ex", 1560, -40, 80, 30,"fillColor=grey");
+            Object MaynoothSEx = createVertex("CN76Ex", "CN76Ex", 1560, -120, 80, 30,"fillColor=grey");
 
 
 
 
+            //Southbound Lines
             graph.insertEdge(parent, null, "", CPlat31ConEx, CNPlatform1);
             graph.insertEdge(parent, null, "", CPlat32Con, CNPlatform2);
             graph.insertEdge(parent, null, "", CPlat32Con, CNPlatform3);
@@ -166,6 +169,8 @@ public class LayoutCreator {
             graph.insertEdge(parent, null, "", CN65En, CN76Ex);
             graph.insertEdge(parent, null, "", CN76Ex, CNMaynoothN);
             graph.insertEdge(parent, null, "", CN76En, CNMaynoothS);
+            graph.insertEdge(parent, null, "", MaynoothNEx, CNMaynoothN);
+            graph.insertEdge(parent, null, "", MaynoothSEx, CNMaynoothS);
 
 
             graph.insertEdge(parent, null, "", CN65En, CN65Ex);
@@ -185,7 +190,28 @@ public class LayoutCreator {
             graph.insertEdge(parent, null, "", C65Ex, CN3Node);
             graph.insertEdge(parent, null, "", ConnollyNorthShunt, C65Ex);
 
+            //NorthBound Lines
+            graph.insertEdge(parent, null, "", CNPlatform1, CPlat31ConEx);
+            graph.insertEdge(parent, null, "", CNPlatform2, CPlat32Con);
+            graph.insertEdge(parent, null, "", CNPlatform3, CPlat32Con);
+            graph.insertEdge(parent, null, "", CNPlatform4, CPlat34ConEx);
 
+            graph.insertEdge(parent, null, "", CPlat31ConEx, CPlat31ConEn);
+            graph.insertEdge(parent, null, "", CPlat34ConEx, CPlat34ConEn);
+            graph.insertEdge(parent, null, "", CPlat32Con, CPlat34ConEn);
+            graph.insertEdge(parent, null, "", CPlat34ConEn, CPlat31ConEn);
+
+            graph.insertEdge(parent, null, "", CPlat31ConEn, CPlat31ConSEn);
+            graph.insertEdge(parent, null, "", CPlat31ConSEn, CPlat34ConEnS);
+            graph.insertEdge(parent, null, "", CPlat34ConEnS, C35ConEn);
+            graph.insertEdge(parent, null, "", C35ConEn, CN3Node);
+            graph.insertEdge(parent, null, "", CN3Node, C65Ex);
+            graph.insertEdge(parent, null, "", C65Ex, C65En);
+            graph.insertEdge(parent, null, "", C65Ex, ConnollyNorthShunt);
+            graph.insertEdge(parent, null, "", C65En, ConnollyNorthEn);
+
+            graph.insertEdge(parent, null, "", CNPlatform7, CPlat67ConEx);
+            graph.insertEdge(parent, null, "", CPlat67ConEx, CNMaynoothS);
 
 
 

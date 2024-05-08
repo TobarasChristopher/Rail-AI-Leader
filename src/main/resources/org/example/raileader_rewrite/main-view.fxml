@@ -16,7 +16,7 @@
                   <Button fx:id="btnSchedule" mnemonicParsing="false" onAction="#goToSchedule" prefHeight="75.0" prefWidth="150.0" text="Feed Schedule" textAlignment="CENTER" wrapText="true" />
                   <Button fx:id="btnLogs" mnemonicParsing="false" onAction="#goToLogs" prefHeight="75.0" prefWidth="150.0" text="View Logs" />
                   <Button fx:id="btnDebug" mnemonicParsing="false" onAction="#goToDebug" prefHeight="75.0" prefWidth="150.0" text="Debug" />
-                  <Button fx:id="btnSettings" alignment="CENTER" mnemonicParsing="false" onAction="#goToSettings" prefHeight="75.0" prefWidth="150.0" text="Settings" />
+                  <Button fx:id="btnExit" alignment="CENTER" mnemonicParsing="false" onAction="#exitProgram" prefHeight="75.0" prefWidth="150.0" text="Exit" />
                </children>
             </HBox>
          </children>

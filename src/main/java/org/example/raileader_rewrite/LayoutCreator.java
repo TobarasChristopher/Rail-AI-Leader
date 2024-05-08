@@ -4,6 +4,7 @@ import java.io.IOException;
 import com.mxgraph.model.mxCell;
 import com.mxgraph.view.mxGraph;
 import logic.ExceptionHandler;
+import logic.PerformanceHandler;
 import logic.ScheduleManager;
 import logic.TimeManager;
 import nodefactory.Train;
@@ -17,6 +18,7 @@ public class LayoutCreator {
     public mxGraph graph = new mxGraph();
     public Object parent = graph.getDefaultParent();
     TimeManager timeManager = TimeManager.getInstance();
+    PerformanceHandler performanceHandler = PerformanceHandler.getInstance();
     ExceptionHandler exceptionHandler = ExceptionHandler.getInstance();
     public HashMap<String, Object> vertexMap = new HashMap<>();
     private Map<Object, String> originalStyles = new HashMap<>();
@@ -280,20 +282,26 @@ public class LayoutCreator {
         }
 
     }
+
+    public void stopTimer() {
+        timer.cancel();
+    }
     private void CheckStoredTrains() {
 
         String currentTime = timeManager.getCurrentTimeString();
         if (!storedTrains.isEmpty()) {
-            Iterator<Train> iterator = storedTrains.iterator();
-            while (iterator.hasNext()) {
-                Train train = iterator.next();
+            Iterator<Train> Storeiterator = storedTrains.iterator();
+            while (Storeiterator.hasNext()) {
+                Train train = Storeiterator.next();
                 if (train.getScheduledTime().equals(currentTime) || train.getScheduledTime().equals("TEST")) {
                     AddTrains(train);
-                    iterator.remove();
+                    Storeiterator.remove();
                 }
             }
 
         }
+
+
     }
 
     private void AddTrains(Train train){
@@ -327,7 +335,12 @@ public class LayoutCreator {
 
             // Create a new thread for each train
             Thread thread = new Thread(() -> {
+                long startTime = System.nanoTime(); // Record start time
                 List<Object> activePath = findPathDFS(train.getPointOfOrigin(),train.getDestination()); // Find the path for the train
+                long endTime = System.nanoTime(); // Record end time
+                long duration = endTime - startTime; // Calculate duration in nanoseconds
+                System.out.println("Execution time: " + duration + " nanoseconds");
+
 
 
                 if (!activePath.isEmpty()) {
@@ -346,6 +359,7 @@ public class LayoutCreator {
                         containsColorStyle = checkForLock(activePath, "fillColor=red");
                     }
 
+                    System.out.println("path was free!");
                     highlightPath(activePath); // Highlight the path
                     try {
                         // Sleep for a set amount of time (e.g., 5 seconds)
@@ -357,6 +371,10 @@ public class LayoutCreator {
                     }
 
                     moveTrain(train);
+                    String currentTime = timeManager.getCurrentTimeString();
+                    System.out.println("Sending stats!");
+                    performanceHandler.addNewTrain(train, currentTime, duration);
+
                     try {
                         // Sleep for a set amount of time (e.g., 5 seconds)
                         Thread.sleep(5000); // Sleep for 5 seconds (5000 milliseconds)
@@ -366,6 +384,7 @@ public class LayoutCreator {
                         return; // Exit the thread if interrupted
                     }
                     resetCellColors();
+                    Object cell1 = graph.getModel().setValue(train.getDestination(), "");
 
 
                 } else {
@@ -379,7 +398,9 @@ public class LayoutCreator {
                         exceptionHandler.handleException(e,e.getMessage(),"Thread for train"+train.getName()+"interrupted while sleeping: ");
                         return; // Exit the thread if interrupted
                     }
-                    Object cell1 = graph.getModel().setValue(train.getPointOfOrigin(), "");
+                    Object cell1 = graph.getModel().setValue(train.getDestination(), "");
+
+
                 }
             });
 
@@ -390,9 +411,10 @@ public class LayoutCreator {
     public synchronized void moveTrain(Train train) {
         Object cell = graph.getModel().setValue(train.getDestination(), train.getName());
         Object cell1 = graph.getModel().setValue(train.getPointOfOrigin(), "");
-        synchronized (sortedTrains) {
-            sortedTrains.add(train); // Add the train to the sorted list
-        }
+
+
+
+
     }
 
 
@@ -551,6 +573,9 @@ public class LayoutCreator {
 
 
                 }
+            } catch (NullPointerException ex) {
+                exceptionHandler.handleException(ex,ex.getMessage(),"Null Pointer exception found at HighlightPath method");
+
             } finally {
                 graph.getModel().endUpdate();
             }
@@ -567,6 +592,9 @@ public class LayoutCreator {
                 graph.getModel().setStyle(cell, originalStyle);
             }
             originalStyles.clear(); // Clear the map after resetting styles
+        } catch (NullPointerException ex) {
+            exceptionHandler.handleException(ex,ex.getMessage(),"Null Pointer exception found at resetCellColor method");
+
         } finally {
             graph.getModel().endUpdate();
         }

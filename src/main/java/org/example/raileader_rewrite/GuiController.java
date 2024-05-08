@@ -5,10 +5,12 @@ import com.mxgraph.view.mxGraph;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -27,6 +29,8 @@ public class GuiController implements Initializable{
     @FXML
     private StackPane graphPane;
     private mxGraph graph;
+    @FXML
+    private Button btnExit;
     @FXML
     private Label clock;
     LayoutCreator layoutCreator = new LayoutCreator();
@@ -72,12 +76,12 @@ public class GuiController implements Initializable{
         openWindow("/org/example/raileader_rewrite/debug-view.fxml");
     }
     @FXML
-    protected void goToSettings(ActionEvent event) throws IOException {
-        openWindow("/org/example/raileader_rewrite/setting-view.fxml");
-    }
-    @FXML
-    protected void goToManualControl(ActionEvent event) throws IOException {
-        openWindow("/org/example/raileader_rewrite/manual-view.fxml");
+    protected void exitProgram(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
+        layoutCreator.stopTimer();
+        // Exit the JavaFX application
+        Platform.exit();
     }
     @FXML
     protected void goToLogs(ActionEvent event) throws IOException {

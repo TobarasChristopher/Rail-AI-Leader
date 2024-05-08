@@ -158,13 +158,6 @@ public class ScheduleView {
                 return trainData;
         }
 
-        public List<String[]> getTrainData(){
-                if(confirmation){
-                        return trainData;
-                }else{
-                        return null;
-                }
 
-        }
 
 }

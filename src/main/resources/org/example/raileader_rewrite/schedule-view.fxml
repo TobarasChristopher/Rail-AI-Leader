@@ -11,5 +11,20 @@
             <Font size="15.0" />
          </font>
       </Button>
+      <Button fx:id="uploadBTN" layoutX="115.0" layoutY="236.0" mnemonicParsing="false" onAction="#uploadCSV" prefHeight="25.0" prefWidth="81.0" text="Upload CSV" />
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="472.0">
+        <columns>
+           <TableColumn fx:id="col1" prefWidth="86.0" text="Train ID" />
+           <TableColumn fx:id="col2" prefWidth="79.0" text="Origin" />
+           <TableColumn fx:id="col3" prefWidth="90.0" text="Destination" />
+           <TableColumn fx:id="col4" prefWidth="106.0" text="Scheduled Time" />
+            <TableColumn fx:id="col5" prefWidth="110.0" text="Arrival Time" />
+        </columns>
+      </TableView>
+      <Button fx:id="confirmButton" layoutX="396.0" layoutY="236.0" mnemonicParsing="false" onAction="#confirm" prefHeight="50.0" prefWidth="90.0" text="Confirm">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

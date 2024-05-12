@@ -1,5 +1,7 @@
 package nodefactory;
 
+import com.mxgraph.model.mxCell;
+
 import javax.swing.*;
 
 public class Train {

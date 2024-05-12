@@ -63,26 +63,6 @@ public class LogsController {
         }
     }
 
-    @FXML
-    protected void exportToCSV(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-        File file = fileChooser.showSaveDialog(exportButton.getScene().getWindow());
-
-        if (file != null) {
-            try (FileWriter writer = new FileWriter(file)) {
-                ObservableList<String> items = logTable.getItems();
-                for (String item : items) {
-                    writer.write(item + "\n");
-                }
-                showAlert("Export Successful", "Data exported to " + file.getAbsolutePath(), Alert.AlertType.INFORMATION);
-            } catch (IOException e) {
-                e.printStackTrace();
-                showAlert("Export Error", "Error occurred while exporting data", Alert.AlertType.ERROR);
-            }
-        }
-    }
-
     private void showAlert(String title, String content, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

@@ -32,7 +32,6 @@ public class ExceptionHandler {
         logException(e, title, headerText);
         displayErrorAlert(title, headerText, e.getMessage());
     }
-
     private void logException(Exception e, String title, String header) {
         // Get current time
         String currentTime = timeManager.getCurrentTimeString();

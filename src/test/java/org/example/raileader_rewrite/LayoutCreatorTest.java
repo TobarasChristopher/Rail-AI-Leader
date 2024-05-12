@@ -31,17 +31,16 @@ class LayoutCreatorTest {
     }
     @Test
     void findNoPath() {
-        train = new Train("TestTrain",vertexMap.get("C35ConEn"),vertexMap.get("CN65Ex"),"TEST","TEST");
+        train = new Train("TestTrain",vertexMap.get("C35ConEn"),vertexMap.get("TestNode"),"TEST","TEST");
         List<Object> path = layoutCreator.findPathDFS(train.getPointOfOrigin(),train.getDestination());
-        assertNotNull(path, "The path returned must exist");
-        assertTrue(path.isEmpty(), "The path returned must not contain anything");
+        assertNull(path, "The path returned must not exist");
     }
 
     @Test
     void checkForLock() {
         graph = layoutCreator.initLayout();
-        graph.getModel().setStyle(vertexMap.get("CPlat34ConEnS"), "fillColor=red");
-        train = new Train("TestTrain",vertexMap.get("C35ConEn"),vertexMap.get("CNPlatform1"),"TEST","TEST");
+        graph.getModel().setStyle(vertexMap.get("CPlat31ConEx"), "fillColor=red");
+        train = new Train("TestTrain",vertexMap.get("CPlat31ConSEx"),vertexMap.get("CNPlatform1"),"TEST","TEST");
         List<Object> path = layoutCreator.findPathDFS(train.getPointOfOrigin(),train.getDestination());
         boolean check = layoutCreator.checkForLock(path, "fillColor=red");
         assertTrue(check, "The path must be detected as occupied");

@@ -43,9 +43,6 @@ public class LayoutCreator {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-
-
-
                 ImportTrains();
                 CheckStoredTrains();
                 if(start){
@@ -58,7 +55,7 @@ public class LayoutCreator {
         try {
 
             Object v0 = createVertex("0", "0", 20, 20, 80, 30,"fillColor=orange");
-
+            Object TestNode = createVertex("TestNode", "TestNode", -40, -40, 80, 30,"fillColor=green");
 
 
             Object CNPlatform1 = createVertex("CNPlatform1", "CNPlatform1", 20, 380, 80, 30,"fillColor=green");
@@ -273,7 +270,7 @@ public class LayoutCreator {
                     }
 
                     Train train = new Train(name, originobj, destinationobj, scheduledTime, arrivalTime);
-                    System.out.println(train);
+                    System.out.println("added to storedTrains!");
                     storedTrains.add(train);
                 }
             }
@@ -295,28 +292,21 @@ public class LayoutCreator {
                 Train train = Storeiterator.next();
                 if (train.getScheduledTime().equals(currentTime) || train.getScheduledTime().equals("TEST")) {
                     AddTrains(train);
+                    System.out.println("train added to layout!");
                     Storeiterator.remove();
                 }
             }
 
         }
-
-
     }
-
     private void AddTrains(Train train){
         Object origin = train.getPointOfOrigin();
-
-
         try{
             Object cell = graph.getModel().setValue(origin, train.getName());
             trainsQ.offer(train);
         } catch (Exception e){
-
             exceptionHandler.handleException(e, "An error occurred!", train.getName()+" cannot be placed on its origin because it does not exist!");
         }
-
-
     }
 
     public void Start(){
@@ -327,23 +317,19 @@ public class LayoutCreator {
     }
 
     public void MoveTrain() {
-        System.out.println("Running!");
-
         // Process trains in the queue
         while (!trainsQ.isEmpty()) {
             Train train = trainsQ.poll(); // Retrieve and remove the train from the queue
-
+            System.out.println("train is: "+train.getName());
             // Create a new thread for each train
             Thread thread = new Thread(() -> {
                 long startTime = System.nanoTime(); // Record start time
                 List<Object> activePath = findPathDFS(train.getPointOfOrigin(),train.getDestination()); // Find the path for the train
+
                 long endTime = System.nanoTime(); // Record end time
                 long duration = endTime - startTime; // Calculate duration in nanoseconds
-                System.out.println("Execution time: " + duration + " nanoseconds");
 
-
-
-                if (!activePath.isEmpty()) {
+                if (!(activePath ==null)) {
                     boolean containsColorStyle = checkForLock(activePath, "fillColor=red");
                     while (containsColorStyle) {
                         // Perform action if any node in the path contains the desired color style
@@ -359,7 +345,7 @@ public class LayoutCreator {
                         containsColorStyle = checkForLock(activePath, "fillColor=red");
                     }
 
-                    System.out.println("path was free!");
+
                     highlightPath(activePath); // Highlight the path
                     try {
                         // Sleep for a set amount of time (e.g., 5 seconds)
@@ -370,7 +356,7 @@ public class LayoutCreator {
                         return; // Exit the thread if interrupted
                     }
 
-                    moveTrain(train);
+                    moveTrainOnGraph(train);
                     String currentTime = timeManager.getCurrentTimeString();
                     System.out.println("Sending stats!");
                     performanceHandler.addNewTrain(train, currentTime, duration);
@@ -408,7 +394,7 @@ public class LayoutCreator {
         }
     }
 
-    public synchronized void moveTrain(Train train) {
+    public synchronized void moveTrainOnGraph(Train train) {
         Object cell = graph.getModel().setValue(train.getDestination(), train.getName());
         Object cell1 = graph.getModel().setValue(train.getPointOfOrigin(), "");
 
@@ -527,8 +513,10 @@ public class LayoutCreator {
     public List<Object> findPathDFS(Object origin, Object destination) {
         Set<Object> visited = new HashSet<>();
         List<Object> path = new ArrayList<>();
-        dfs(origin, destination, visited, path);
-        return path;
+        if (dfs(origin, destination, visited, path)){
+            return path;
+        }
+        return null;
     }
 
     private boolean dfs(Object currentCell, Object destination, Set<Object> visited, List<Object> path) {

@@ -1,22 +1,15 @@
 package org.example.raileader_rewrite;
 
-import com.mxgraph.view.mxGraph;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import nodefactory.Train;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainApplication extends Application {
     /**
      * @author Christopher Tobaras
-     * @version 1.15
-     *
-     *
+     * @version 1.4
      */
     @Override
     public void start(Stage stage) throws IOException {
@@ -25,7 +18,7 @@ public class MainApplication extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Rail AI Leader V1.15");
+        stage.setTitle("Rail AI Leader V1.4");
         stage.setScene(scene);
         stage.show();
     }

@@ -76,14 +76,6 @@ public class GuiController implements Initializable{
         openWindow("/org/example/raileader_rewrite/debug-view.fxml");
     }
     @FXML
-    protected void exitProgram(ActionEvent event) throws IOException {
-        Stage stage = (Stage) btnExit.getScene().getWindow();
-        stage.close();
-        layoutCreator.stopTimer();
-        // Exit the JavaFX application
-        Platform.exit();
-    }
-    @FXML
     protected void goToLogs(ActionEvent event) throws IOException {
         openWindow("/org/example/raileader_rewrite/log-view.fxml");
     }
@@ -98,7 +90,14 @@ public class GuiController implements Initializable{
             e.printStackTrace();
         }
     }
-
+    @FXML
+    protected void exitProgram(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
+        layoutCreator.stopTimer();
+        // Exit the JavaFX application
+        Platform.exit();
+    }
     @FXML
     public void start(ActionEvent event) throws IOException {
         layoutCreator.Start();

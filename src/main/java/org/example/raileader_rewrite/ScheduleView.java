@@ -82,8 +82,8 @@ public class ScheduleView {
                         }
                 });
                 col5.setCellValueFactory(cellData -> {
-                        if (cellData.getValue().length > 3) {
-                                return new SimpleStringProperty(cellData.getValue()[3]);
+                        if (cellData.getValue().length > 4) {
+                                return new SimpleStringProperty(cellData.getValue()[4]);
                         } else {
                                 return new SimpleStringProperty("");
                         }
@@ -116,34 +116,6 @@ public class ScheduleView {
                         }
                 }
         }
-        @FXML
-        private void confirm(ActionEvent event) {
-
-
-                /*for (String[] row : trainData) {
-                        for (String value : row) {
-                                System.out.print(value + " n ");
-                        }
-                        System.out.println();
-                }*/
-                scheduleManager.setRawData(trainData);
-
-                /*confirmation = true;
-
-                PauseTransition delay = new PauseTransition(Duration.seconds(2));
-                delay.setOnFinished(e -> {
-                        // get a handle to the stage
-                        Stage stage = (Stage) closeButton.getScene().getWindow();
-                        // do what you have to do
-                        stage.close();
-                });
-                delay.play();*/
-                // get a handle to the stage
-                Stage stage = (Stage) closeButton.getScene().getWindow();
-                // do what you have to do
-                stage.close();
-
-        }
         private List<String[]> readCSV(File file) throws IOException {
 
                 try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -157,6 +129,17 @@ public class ScheduleView {
                 }
                 return trainData;
         }
+        @FXML
+        private void confirm(ActionEvent event) {
+                scheduleManager.setRawData(trainData);
+
+                // get a handle to the stage
+                Stage stage = (Stage) closeButton.getScene().getWindow();
+                // do what you have to do
+                stage.close();
+
+        }
+
 
 
 

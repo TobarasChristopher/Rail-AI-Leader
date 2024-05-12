@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6829c2f6-9269-4905-9a3e-1bce4d44576a" name="Changes" comment="Add GUI&#10;Add MXGraph&#10;Add Schedule-View">
-      <change afterPath="$PROJECT_DIR$/src/main/java/logic/PerformanceHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/DebugController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/DebugController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/ExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/ExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/logic/ScheduleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/logic/ScheduleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/GuiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LogsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LogsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/ScheduleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/ScheduleView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/debug-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/debug-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/raileader_rewrite/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/raileader_rewrite/LayoutCreatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/raileader_rewrite/LayoutCreatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +83,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.43218392",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "editing.templates"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -116,7 +117,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LayoutCreatorTest.PathHighlightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LayoutCreatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RAILeader_Rewrite" />
       <extension name="coverage">
         <pattern>
@@ -126,38 +127,38 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.raileader_rewrite" />
       <option name="MAIN_CLASS_NAME" value="org.example.raileader_rewrite.LayoutCreatorTest" />
-      <option name="METHOD_NAME" value="PathHighlightTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScheduleManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RAILeader_Rewrite" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="logic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="logic" />
-      <option name="MAIN_CLASS_NAME" value="logic.ScheduleManagerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScheduleManagerTest.getRawData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LayoutCreatorTest.checkForLock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RAILeader_Rewrite" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="logic.*" />
+          <option name="PATTERN" value="org.example.raileader_rewrite.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="logic" />
-      <option name="MAIN_CLASS_NAME" value="logic.ScheduleManagerTest" />
-      <option name="METHOD_NAME" value="getRawData" />
+      <option name="PACKAGE_NAME" value="org.example.raileader_rewrite" />
+      <option name="MAIN_CLASS_NAME" value="org.example.raileader_rewrite.LayoutCreatorTest" />
+      <option name="METHOD_NAME" value="checkForLock" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LayoutCreatorTest.findPath" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RAILeader_Rewrite" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.raileader_rewrite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.raileader_rewrite" />
+      <option name="MAIN_CLASS_NAME" value="org.example.raileader_rewrite.LayoutCreatorTest" />
+      <option name="METHOD_NAME" value="findPath" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -181,10 +182,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainApplication" />
-        <item itemvalue="JUnit.ScheduleManagerTest" />
+        <item itemvalue="JUnit.LayoutCreatorTest.findPath" />
         <item itemvalue="JUnit.TrainTest" />
-        <item itemvalue="JUnit.LayoutCreatorTest.PathHighlightTest" />
-        <item itemvalue="JUnit.ScheduleManagerTest.getRawData" />
+        <item itemvalue="JUnit.LayoutCreatorTest.checkForLock" />
+        <item itemvalue="JUnit.LayoutCreatorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -244,7 +245,7 @@
         </breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/raileader_rewrite/LayoutCreator.java</url>
-          <line>562</line>
+          <line>550</line>
           <properties class="org.example.raileader_rewrite.LayoutCreator" method="highlightPath">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

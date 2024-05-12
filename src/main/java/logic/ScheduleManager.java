@@ -22,15 +22,9 @@ public class ScheduleManager {
         }
         return instance;
     }
-
-
-
     public void setRawData(List<String[]> rawData) {
         this.rawData = rawData;
     }
-
-
-
     public List<String[]> getRawData() {
         List<String[]> rawSentData;
         rawSentData = rawData;

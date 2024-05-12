@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+//Singleton instance: https://www.geeksforgeeks.org/singleton-class-java/
 public class ScheduleManager {
     private static ScheduleManager instance;
-    private List<Train> trainData;
 
     private List<String[]> rawData;
 
     private ScheduleManager() {
-        trainData = new ArrayList<>();
+
     }
 
     public static synchronized ScheduleManager getInstance() {

@@ -8,7 +8,7 @@ import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-
+//Singleton instance: https://www.geeksforgeeks.org/singleton-class-java/
 public class PerformanceHandler {
     private static PerformanceHandler instance;
     private List<String[]> PerformanceData;
@@ -35,12 +35,10 @@ public class PerformanceHandler {
         LocalTime expectedTime = LocalTime.parse(train.getArrivalTime());
         LocalTime actualTime = LocalTime.parse(currentTime);
         String diffInSeconds = String.valueOf(ChronoUnit.SECONDS.between(expectedTime, actualTime));
-        System.out.println(diffInSeconds);
+
 
 
         //find difference, then post both duration and arrival time
-
-        System.out.println("Adding "+trainName+" alongside "+currentTime+" and also "+String.valueOf(duration));
         String[] entry = {trainName, train.getArrivalTime(), currentTime, diffInSeconds, String.valueOf(duration)};
         PerformanceData.add(entry);
 

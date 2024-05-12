@@ -63,7 +63,7 @@ class LayoutCreatorTest {
         layoutCreator.highlightPath(path);
         for (Object cell : path) {
             if(!Objects.equals(graph.getModel().getStyle(cell), "fillColor=red")){
-                //System.out.println("Red Lock Detected!");
+
                 check = false;
             }
         }

@@ -25,13 +25,10 @@ public class LayoutCreator {
 
     public List<Train> storedTrains = new ArrayList<>();
     public BlockingQueue<Train> trainsQ = new LinkedBlockingQueue<>();
-    public List<Train> sortedTrains = new ArrayList<>();
-
     private Timer timer;
     private boolean start;
     ScheduleManager scheduleManager = ScheduleManager.getInstance();
-    private static final int PATH_CHECK_DELAY = 1000; // 1 second
-    private static final int MOVE_DELAY = 10000; // 10 seconds
+
 
 
     public LayoutCreator(){
@@ -53,8 +50,9 @@ public class LayoutCreator {
 
         graph.getModel().beginUpdate();
         try {
-
+            //Origin Node
             Object v0 = createVertex("0", "0", 20, 20, 80, 30,"fillColor=orange");
+            //Example Impossible Node
             Object TestNode = createVertex("TestNode", "TestNode", -40, -40, 80, 30,"fillColor=green");
 
 
@@ -270,7 +268,7 @@ public class LayoutCreator {
                     }
 
                     Train train = new Train(name, originobj, destinationobj, scheduledTime, arrivalTime);
-                    System.out.println("added to storedTrains!");
+
                     storedTrains.add(train);
                 }
             }
@@ -283,6 +281,8 @@ public class LayoutCreator {
     public void stopTimer() {
         timer.cancel();
     }
+
+    //Iterator knowledge: https://www.w3schools.com/java/java_iterator.asp
     private void CheckStoredTrains() {
 
         String currentTime = timeManager.getCurrentTimeString();
@@ -292,7 +292,6 @@ public class LayoutCreator {
                 Train train = Storeiterator.next();
                 if (train.getScheduledTime().equals(currentTime) || train.getScheduledTime().equals("TEST")) {
                     AddTrains(train);
-                    System.out.println("train added to layout!");
                     Storeiterator.remove();
                 }
             }
@@ -316,11 +315,11 @@ public class LayoutCreator {
         start = false;
     }
 
+
     public void MoveTrain() {
         // Process trains in the queue
         while (!trainsQ.isEmpty()) {
             Train train = trainsQ.poll(); // Retrieve and remove the train from the queue
-            System.out.println("train is: "+train.getName());
             // Create a new thread for each train
             Thread thread = new Thread(() -> {
                 long startTime = System.nanoTime(); // Record start time
@@ -333,7 +332,7 @@ public class LayoutCreator {
                     boolean containsColorStyle = checkForLock(activePath, "fillColor=red");
                     while (containsColorStyle) {
                         // Perform action if any node in the path contains the desired color style
-                        //System.out.println("Path occupied!.");
+
                         try {
                             // Sleep for a set amount of time (e.g., 5 seconds)
                             Thread.sleep(3000); // Sleep for 5 seconds (5000 milliseconds)
@@ -358,7 +357,6 @@ public class LayoutCreator {
 
                     moveTrainOnGraph(train);
                     String currentTime = timeManager.getCurrentTimeString();
-                    System.out.println("Sending stats!");
                     performanceHandler.addNewTrain(train, currentTime, duration);
 
                     try {
@@ -404,6 +402,7 @@ public class LayoutCreator {
     }
 
 
+    //OBSOLETE ALGORITHM
     /*public synchronized List<Object> findPath(Train train) {
         Object origin = train.getPointOfOrigin();
         Object destination = train.getDestination();
@@ -430,25 +429,23 @@ public class LayoutCreator {
             if (outgoingEdges != null && outgoingEdges.length > 0 ) {       //if there are connections
 
                 if (outgoingEdges.length > 1){
-                    //System.out.println("Junction Detected!");
-                    //System.out.println("junction at: "+activePath.size());
+
                     backTrack.push(activePath.size());
                 }
 
                 for (Object edge : outgoingEdges) {                           //for each connection
-                    //System.out.println(edge);                               //add to nodeList
+                                                //add to nodeList
                     nodeList.push(edge);
                 }
             } else if(!backTrack.isEmpty()) {
 
-                //System.out.println("Dead end! Backtracking");
-                //System.out.println("current pos" +activePath.size());
+
 
                 int lastJunction = backTrack.pop();
                 int size = activePath.size();
                 //int difference = size - lastJunction;
 
-                        //System.out.println("backtracking by "+difference);
+
 
                 for(int i = lastJunction; i < size; i++){
 
@@ -488,14 +485,14 @@ public class LayoutCreator {
                 activePath.add(currentCell);
             } else {
                 // Handle the case where no unvisited target cell is found
-                System.out.println("Error! No unvisited target cell found.");
+
                 break;
             }
 
         }
 
         if(currentCell.equals(destination)) {
-            //System.out.println("Path found!");
+
 
 
             pathFound = true;
@@ -503,7 +500,7 @@ public class LayoutCreator {
         }
 
 
-        System.out.println("Error! Path Could not be found!");
+
         activePath.clear();
         return activePath;
 
@@ -554,7 +551,7 @@ public class LayoutCreator {
             graph.getModel().beginUpdate();
             try {
                 if (cell instanceof mxCell && ((mxCell) cell).isVertex()) {
-                    //System.out.println("Coloring :" + cell);
+
                     mxCell mxcell = (mxCell) cell;
                     originalStyles.put(mxcell, mxcell.getStyle());
                     graph.getModel().setStyle(cell,"fillColor=red");
@@ -592,11 +589,8 @@ public class LayoutCreator {
         boolean check = false;
         for (Object cell : activePath) {
             if (cell instanceof mxCell && ((mxCell) cell).isVertex()) {
-                //System.out.println("Coloring :" + cell);
                 mxCell mxcell = (mxCell) cell;
-                //System.out.println("Style is: "+graph.getModel().getStyle(cell));
                 if(Objects.equals(graph.getModel().getStyle(cell), desiredColorStyle)){
-                    //System.out.println("Red Lock Detected!");
                     check = true;
                 }
 

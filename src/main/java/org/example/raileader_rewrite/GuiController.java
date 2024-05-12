@@ -34,9 +34,9 @@ public class GuiController implements Initializable{
     @FXML
     private Label clock;
     LayoutCreator layoutCreator = new LayoutCreator();
-
     TimeManager timeManager = TimeManager.getInstance();
 
+    //Initialise method for generating the graph and setting up the clock
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         SwingNode swingNode = new SwingNode();
@@ -55,6 +55,8 @@ public class GuiController implements Initializable{
 
     }
 
+    //Source for timeline: https://docs.oracle.com/javafx/2/animations/basics.htm
+    //Grabs time from time singleton and updates element every second
     private void startClock(){
         // Create a timeline to update the clock label every second
         Timeline timeline = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1), event -> {
@@ -95,7 +97,7 @@ public class GuiController implements Initializable{
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
         layoutCreator.stopTimer();
-        // Exit the JavaFX application
+        // Kill application
         Platform.exit();
     }
     @FXML

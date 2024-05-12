@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 
+//Singleton instance: https://www.geeksforgeeks.org/singleton-class-java/
 public class ExceptionHandler {
     private static ExceptionHandler instance;
     private ArrayList<String> exceptionLog;

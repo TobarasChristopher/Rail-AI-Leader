@@ -8,7 +8,6 @@ module org.example.raileader_rewrite {
     requires net.synedra.validatorfx;
     requires eu.hansolo.tilesfx;
     requires com.github.vlsi.mxgraph.jgraphx;
-    requires org.jgrapht.core;
     requires javafx.swing;
 
     opens org.example.raileader_rewrite to javafx.fxml;

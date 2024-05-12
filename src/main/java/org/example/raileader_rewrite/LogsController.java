@@ -33,6 +33,7 @@ public class LogsController {
     @FXML
     private Button exportButton;
 
+    //Taken cellvaluefactory method from: https://stackoverflow.com/questions/50612023/javafx-setcellvaluefactory
     @FXML
     protected void initialize() {
         // Initialize table columns
@@ -71,6 +72,7 @@ public class LogsController {
         alert.showAndWait();
     }
 
+    //Taken knowledge from source: https://www.baeldung.com/java-csv-file-array
     public void exportToCSV(javafx.event.ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
